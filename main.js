@@ -233,14 +233,14 @@ function animate() {
 /** 1-3 르탄이 점프하기 */
 // 키보드 이벤트 처리 (스페이스바 점프)
 document.addEventListener("keydown", function (e) {
-  if (e.code === "Space" && !jump) {
+  if (e.code === "mouseover" && !jump) {
     jump = true; // 스페이스바를 누르고 있을 때 점프 상태 유지
     jumpSound.play(); // 점프 소리 재생
   }
 });
 
 document.addEventListener("keyup", function (e) {
-  if (e.code === "Space") {
+  if (e.code === "mouseover") {
     jump = false; // 스페이스바를 떼면 점프 상태 해제
   }
 });
