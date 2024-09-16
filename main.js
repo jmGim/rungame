@@ -6,7 +6,7 @@ const ctx = canvas.getContext("2d"); // 2D 렌더링
 
 /** 게임 상태 변수 */
 let gameStarted = false; // 게임 시작 여부
-const BG_MOVING_SPEED = 4; // 배경 이동 속도
+const BG_MOVING_SPEED = 5; // 배경 이동 속도
 let bgX = 0; // 배경 X 좌표
 let scoreText = document.getElementById("score"); // 점수 표시 요소
 let score = 0; // 현재 점수
@@ -16,7 +16,7 @@ let timer = 0; // 장애물 생성 시간
 let obstacleArray = []; // 장애물 배열
 let gameOver = false; // 게임 종료 여부
 let jump = false; // 점프 여부
-let jumpSpeed = 4; // 점프 속도
+let jumpSpeed = 5; // 점프 속도
 
 /** 오디오 객체 생성 및 설정 */
 const jumpSound = new Audio(); // 점프 소리
@@ -55,7 +55,7 @@ const obstacleImage = new Image();
 obstacleImage.src = "./rtanrun_asset/images/obstacle2.png";
 
 /** 1-1 르탄이 그리기 */
-const RTAN_WIDTH = 90; // 르탄이 가로 너비
+const RTAN_WIDTH = 85; // 르탄이 가로 너비
 const RTAN_HEIGHT = 90; // 르탄이 세로 높이
 const RTAN_X = 10; // 르탄이의 초기 X 좌표
 const RTAN_Y = 400; // 르탄이의 초기 Y 좌표
@@ -83,10 +83,10 @@ const rtan = {
 /** end of 1-1 르탄이 그리기 */
 
 /** 2-1 장애물 설정 */
-const OBSTACLE_WIDTH = 40; // 장애물 너비
-const OBSTACLE_HEIGHT = 40; // 장애물 높이
-const OBSTACLE_FREQUENCY = 100; // 장애물 생성 빈도
-const OBSTACLE_SPEED = 4; // 장애물 이동 속도
+const OBSTACLE_WIDTH = 35; // 장애물 너비
+const OBSTACLE_HEIGHT = 35; // 장애물 높이
+const OBSTACLE_FREQUENCY = 110; // 장애물 생성 빈도
+const OBSTACLE_SPEED = 5; // 장애물 이동 속도
 
 /** 장애물 클래스 정의 */
 class Obstacle {
@@ -218,11 +218,11 @@ function animate() {
 
   // 1-3 르탄이 점프 조건 설정하기
   if (jump) {
-    rtan.y -= 4; // 스페이스바를 누르고 있으면 rtan의 y값 감소
+    rtan.y -= 5; // 스페이스바를 누르고 있으면 rtan의 y값 감소
     if (rtan.y < 20) rtan.y = 20; // rtan이 canvas 상단을 넘지 않도록 조정
   } else {
     if (rtan.y < RTAN_Y) {
-      rtan.y += 4; // 스페이스바를 떼면 rtan의 y값 증가
+      rtan.y += 5; // 스페이스바를 떼면 rtan의 y값 증가
       if (rtan.y > RTAN_Y) rtan.y = RTAN_Y; // rtan이 초기 위치 아래로 내려가지 않도록 조정
     }
   }
